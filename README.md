@@ -1,4 +1,4 @@
-# Lab 3: Chatbot vs ReAct Agent (Industry Edition)
+# Lab 3: Chatbot vs ReAct Agent (GROUP C4)
 
 Welcome to Phase 3 of the Agentic AI course! This lab focuses on moving from a simple LLM Chatbot to a sophisticated **ReAct Agent** with industry-standard monitoring.
 
@@ -53,6 +53,7 @@ The code is designed as a **Production Prototype**. It includes:
 
 ## 📊 Comparison Logs (for report scoring)
 
+Run `./run_lab_tests.sh` to run all test prompts.
 When you run `compare`, `dalat-compare`, or `benchmark`, the lab now writes:
 
 - `logs/YYYY-MM-DD.log`: low-level event traces
