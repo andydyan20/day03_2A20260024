@@ -1,4 +1,4 @@
-# Lab 3: Chatbot vs ReAct Agent (Industry Edition)
+# Lab 3: Chatbot vs ReAct Agent (GROUP C4)
 
 Welcome to Phase 3 of the Agentic AI course! This lab focuses on moving from a simple LLM Chatbot to a sophisticated **ReAct Agent** with industry-standard monitoring.
 
