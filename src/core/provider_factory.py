@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 
 from src.core.llm_provider import LLMProvider
 from src.core.openai_provider import OpenAIProvider
-from src.core.local_provider import LocalProvider
 
 
 def create_llm_from_env(
@@ -30,6 +29,9 @@ def create_llm_from_env(
         key = os.getenv("GEMINI_API_KEY")
         return GeminiProvider(model_name=m, api_key=key)
     if p == "local":
+        # Lazy import so openai/gemini runs do not require llama-cpp-python.
+        from src.core.local_provider import LocalProvider
+
         path = os.getenv("LOCAL_MODEL_PATH", "./models/Phi-3-mini-4k-instruct-q4.gguf")
         return LocalProvider(model_path=path)
     raise ValueError(f"Unknown provider '{p}'. Use openai, google/gemini, or local.")

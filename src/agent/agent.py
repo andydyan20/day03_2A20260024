@@ -3,7 +3,6 @@ import re
 from typing import Any, Dict, List, Optional, Tuple
 
 from src.core.llm_provider import LLMProvider
-from src.core.local_provider import LocalProvider
 from src.telemetry.logger import logger
 from src.telemetry.metrics import tracker
 
@@ -185,7 +184,8 @@ Use: Thought / Action / Final Answer as in the lab template."""
 
     def _generate_kwargs(self) -> Dict[str, Any]:
         kw: Dict[str, Any] = {}
-        if isinstance(self.llm, LocalProvider):
+        # Avoid importing LocalProvider eagerly (which requires llama-cpp-python).
+        if self.llm.__class__.__name__ == "LocalProvider":
             kw["stop"] = ["<|end|>"]
         if self.temperature is not None:
             kw["temperature"] = self.temperature
